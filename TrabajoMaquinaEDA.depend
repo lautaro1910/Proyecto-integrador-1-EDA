@@ -1,0 +1,119 @@
+# depslib dependency file v1.0
+1604842354 source:c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\trabajo maquina eda\main.c
+	"ABB.h"
+	"LSO.h"
+
+1604842354 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\trabajo maquina eda\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604843278 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\trabajo maquina eda\persona.h
+	<string.h>
+
+1604843187 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\trabajo maquina eda\lso.h
+	<math.h>
+
+1604847591 source:c:\users\lautaro\desktop\trabajo maquina eda\main.c
+	"ABB.h"
+	"LSO.h"
+
+1604846713 c:\users\lautaro\desktop\trabajo maquina eda\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604847407 c:\users\lautaro\desktop\trabajo maquina eda\persona.h
+	<string.h>
+	<ctype.h>
+
+1604846713 c:\users\lautaro\desktop\trabajo maquina eda\lso.h
+	<math.h>
+
+1604878348 source:c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\main.c
+	"ABB.h"
+	"LSO.h"
+
+1604846713 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604847407 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\persona.h
+	<string.h>
+	<ctype.h>
+
+1604871933 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\lso.h
+	<math.h>
+
+1605579806 source:c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\main.c
+	"ABB.h"
+	"LSO.h"
+
+1605579761 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604847407 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\persona.h
+	<string.h>
+	<ctype.h>
+
+1605579789 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\lso.h
+	<math.h>
+
+1605666880 source:c:\users\lautaro\desktop\tm eda\segunda entrega\main.c
+	"ABB.h"
+	"LSO.h"
+
+1605668096 c:\users\lautaro\desktop\tm eda\segunda entrega\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604847407 c:\users\lautaro\desktop\tm eda\segunda entrega\persona.h
+	<string.h>
+	<ctype.h>
+
+1605670237 c:\users\lautaro\desktop\tm eda\segunda entrega\lso.h
+	<math.h>
+
+1605817254 source:c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\p1-grupo4\main.c
+	"ABB.h"
+	"LSO.h"
+
+1605816942 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\p1-grupo4\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604847407 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\p1-grupo4\persona.h
+	<string.h>
+	<ctype.h>
+
+1605818094 c:\users\fravega\desktop\f\segundo año\estructura de datos y algoritmos\p1-grupo4\segunda entrega\p1-grupo4\lso.h
+	<math.h>
+
+1605821482 source:c:\users\lautaro\desktop\tm eda\segunda entrega\p1-grupo4\main.c
+	"ABB.h"
+	"LSO.h"
+
+1605816942 c:\users\lautaro\desktop\tm eda\segunda entrega\p1-grupo4\abb.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"persona.h"
+
+1604847407 c:\users\lautaro\desktop\tm eda\segunda entrega\p1-grupo4\persona.h
+	<string.h>
+	<ctype.h>
+
+1605818094 c:\users\lautaro\desktop\tm eda\segunda entrega\p1-grupo4\lso.h
+	<math.h>
+

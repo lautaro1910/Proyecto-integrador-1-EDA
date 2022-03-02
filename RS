@@ -1,0 +1,203 @@
+#include <math.h>
+#define MAX 350
+
+typedef struct LSO {
+    Persona Ar [MAX];
+    int cantidadArr;
+}LSO;
+
+void inicializarLSO(LSO *L){
+    L->cantidadArr = 0;
+}
+
+int LocalizarSec (int dni, int *pos, LSO L, int *costo) {
+    int i=0;
+    if (L.cantidadArr == 0){
+        *pos = 0;
+        return 0;
+    }
+    else {
+        while (i < L.cantidadArr && L.Ar[i].dni < dni){
+            i=i+1;
+            *costo += 1;
+        }
+        *pos = i;
+        if(i != L.cantidadArr){
+            *costo += 1;
+            if(L.Ar[i].dni == dni){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+        return 0;
+    }
+}
+
+int LocalizarBin (int dni, int *pos, LSO L, int *costo){  //Localizacion con +infinito como ultimo elemento
+    int li, ls, m, i;
+    int vectorF[L.cantidadArr];
+    for (i = 0; i < L.cantidadArr; i++){
+        vectorF[i] = 0;
+    }
+    li = -1;                                //li exclusivo
+    ls = (L.cantidadArr-1);                 //ls inclusivo
+    m = ceil(((double)(li + ls)) / 2);
+    while ( li < ls - 1){
+        if (L.Ar[m].dni < dni){
+            li = m;
+        }
+        else {
+            ls = m;
+        }
+        if(vectorF[m] == 0){
+            vectorF[m] = 1;
+            *costo += 1;
+        }
+        m = ceil(((double)(li + ls)) / 2);
+    }
+    *pos = m;
+    if(vectorF[m] == 0){
+        *costo += 1;
+    }
+    if (L.Ar[m].dni != dni){
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}
+
+int AltaLSO (LSO *L, Persona p, int valor, int *costo){  //valor = 1 Alta secuencial, valor = 2 Alta bin
+    int pos=0, i=0, exito, nada;                  // return 1 para alta exitosa, return 2 estructura llena, return 0 Elemento ya existe
+    if (valor == 1){
+        exito = LocalizarSec(p.dni, &pos, *L, &nada);
+        }
+    else{
+        exito = LocalizarBin(p.dni, &pos, *L, &nada);
+    }
+    if (exito == 0){
+        if (L->cantidadArr != MAX){
+            for (i = L->cantidadArr; i > pos; i--){
+                L->Ar[i] = L->Ar[i-1];
+                *costo += 1;
+            }
+            L->Ar[pos] = p;
+            L->cantidadArr += 1;
+            return 1;
+        }
+        else {
+            return 2;
+        }
+    }
+    else {
+        return 0;
+    }
+}
+
+int BajaLSO (LSO *L, int dni, int valor, int *costo, Persona p){    //valor = 1 Alta secuencial, valor = 2 Alta bin
+    int pos, i, exito, rta, nada;                             // return 1 para alta exitosa, return 0 Elemento ya existe
+    if (valor == 1){
+        exito = LocalizarSec(dni, &pos, *L, &nada);
+        }
+    else{
+        exito = LocalizarBin(dni, &pos, *L, &nada);
+    }
+    if (exito == 1){
+        if(!*costo){
+            if(CompararPersonas(p, L->Ar[pos])){
+                rta = 1;
+            }
+            else{
+                rta = 2;
+            }
+        }
+        else{
+            Imprimir(L->Ar[pos]);
+            printf("¿Desea eliminar? \n1 = SI \n2 = NO\n");
+            printf("Ingrese opcion: ");
+            scanf("%d",&rta);
+            while (rta<1 || rta>2){
+                printf("\nOPCION NO VALIDA\n¿Desea eliminar? \n1 = SI \n2 = NO\n");
+                printf("Ingrese opcion: ");
+                scanf("%d",&rta);
+            }
+        }
+        if(rta == 1){
+            for (i = pos; i < L->cantidadArr-1; i++){
+                L->Ar[i] = L->Ar[i + 1];
+                *costo += 1;
+            }
+            L->cantidadArr -= 1;
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+    else {
+        return 0;
+    }
+}
+
+int EvocacionLSO (int dni, LSO L, int valor, Persona *p){
+    int pos, exito, nada;                  // return 1 para alta exitosa, return 0 Elemento ya existe
+    if (valor == 1){
+        exito = LocalizarSec(dni, &pos, L,&nada);
+        }
+    else{
+        exito = LocalizarBin(dni, &pos, L,&nada);
+    }
+    if (exito == 1){
+        *p=L.Ar[pos];
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+void MostrarLSO(LSO L){
+    int i;
+    if (!L.cantidadArr){
+        printf("%s\n", "No hay ninguna persona inhibida.");
+    }
+    else{
+        for (i=0; i < L.cantidadArr ; i++){
+            printf("Posicion: %d\n", i);
+            Imprimir(L.Ar[i]);
+            printf("\n");
+        }
+    }
+}
+
+void MostrarLSOBB(LSO L){
+    int i;
+    if (L.cantidadArr-1==0){
+        printf("%s\n", "No hay ninguna persona inhibida.");
+    }
+    else{
+        for (i=0; i < L.cantidadArr - 1 ; i++){
+            printf("Posicion: %d\n", i);
+            Imprimir(L.Ar[i]);
+            printf("\n");
+        }
+    }
+}
+
+void BorrarLSO(LSO *L){
+    L->cantidadArr = 0;
+}
+
+int PerteneceLSO(LSO L,int dni,int valor){
+    int nada,pos;
+    if(valor == 1){
+        return LocalizarSec(dni,&pos,L,&nada);
+    }
+    else{
+        return LocalizarBin(dni,&pos,L,&nada);
+    }
+}
+
+
